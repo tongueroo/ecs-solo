@@ -1,5 +1,7 @@
 # ecs-solo
 
+[![BoltOps Badge](https://img.boltops.com/boltops/badges/boltops-badge.png)](https://www.boltops.com)
+
 Deploy Docker image from ECS service to the current instance.  This is useful if you want to deploy the current running ECS docker image onto an EC2 instance outside of ECS purview. It can also be useful to run the Docker container locally and exam it.
 
 ## Usage
