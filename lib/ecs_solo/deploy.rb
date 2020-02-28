@@ -8,9 +8,14 @@ module EcsSolo
     end
 
     def run
+      if @options[:noop]
+        puts "NOOP: Will find task definition associated with #{@identifier.color(:green)} in the cluster #{@cluster.color(:green)}"
+        return
+      end
+
       task_definition = find_task_definition
       unless task_definition
-        puts "Unable to task definition associated with service #{@service.color(:green)} in the cluster #{@cluster.color(:green)}"
+        puts "Unable to task definition associated with #{@identifier.color(:green)} in the cluster #{@cluster.color(:green)}"
         exit 1
       end
 
@@ -19,7 +24,7 @@ module EcsSolo
     end
 
     def find_task_definition
-      puts "Finding Docker image associated with service #{@service}"
+      puts "Finding Docker image associated with #{@identifier}"
       service = find_service
       return unless service
 
