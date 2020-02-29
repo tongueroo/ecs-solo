@@ -17,10 +17,18 @@ module EcsSolo
         stop
         rm
         run
+      elsif !running?
+        rm
+        run
       else
         puts "WARN: container name is already in use".color(:yellow)
         puts "If you want to force a new container, use the --force-new option."
       end
+    end
+
+    def running?
+      out = sh "docker inspect -f '{{.State.Running}}' #{name}"
+      out.strip == "true"
     end
 
     def run
@@ -68,7 +76,9 @@ module EcsSolo
 
     def sh(command)
       puts "=> #{command}"
-      system(command)
+      out = `#{command}`
+      puts out
+      out
     end
   end
 end
