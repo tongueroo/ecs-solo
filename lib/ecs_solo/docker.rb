@@ -32,7 +32,8 @@ module EcsSolo
     end
 
     def run
-      sh "docker run --name #{name} -d #{image} #{@command}"
+      docker_options = ENV['ECS_SOLO_DOCKER_RUN_OPTIONS']
+      sh "docker run --name #{name} -d #{docker_options}#{image} #{@command}"
     end
 
     def in_use?
