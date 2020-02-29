@@ -3,6 +3,9 @@
 All notable changes to this project will be documented in this file.
 This project *tries* to adhere to [Semantic Versioning](http://semver.org/), even before v1.0.
 
+## [0.1.4]
+- fix space
+
 ## [0.1.3]
 - ability to control docker run options with ECS_SOLO_DOCKER_RUN_OPTIONS
 
